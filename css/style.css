@@ -1,3 +1,8 @@
+body{
+  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
 header{
   font-size: 2rem;
   text-align: center;
@@ -44,8 +49,11 @@ main{
   border-top: solid black 1px;
 }
 
-.draw-numbers__number{
-  max-width: 80%;
+
+
+.draw__numbers__info{
+  display: flex;
+  width: 30%;
 }
 
 
