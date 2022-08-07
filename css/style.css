@@ -1,0 +1,46 @@
+header{
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem;
+  background-color: gray;
+  color: #FFF;
+}
+
+main{
+  margin: 0 1.5rem;
+}
+
+.prize__tittle__container{
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+
+  margin-top: 1rem;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .3rem;
+
+}
+
+.prize__tittle__value::before{
+  content: '(';
+}
+.prize__tittle__value::after{
+  content: ')';
+}
+
+
+
+/* DRAW NUMBERS */
+.draw__numbers__container{
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.draw-numbers__number{
+  max-width: 80%;
+}
