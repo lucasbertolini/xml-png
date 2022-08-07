@@ -37,10 +37,38 @@ main{
 /* DRAW NUMBERS */
 .draw__numbers__container{
   display: flex;
-  align-items: center;
   gap: .3rem;
 }
 
 .draw-numbers__number{
   max-width: 80%;
+}
+
+
+
+/* WINNER INFO */
+.winners__main__container{
+  display: flex;
+}
+
+.winners__tittle{
+  font-weight: 700;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.winners__document__container{
+  width: 9.5%;
+}
+
+.winners__name__container{
+  width: 38%;
+}
+
+.winners__city__container{
+  width: 33%;
+}
+
+.winners__seller__container{
+  width: 19.5%;
 }
