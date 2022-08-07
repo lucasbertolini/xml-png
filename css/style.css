@@ -4,6 +4,7 @@ header{
   padding: 2rem;
   background-color: gray;
   color: #FFF;
+  margin-bottom: .7rem;
 }
 
 main{
@@ -15,8 +16,8 @@ main{
   font-size: 1rem;
   font-weight: 700;
 
-  margin-top: 1rem;
-
+  padding-top: .3rem;
+  padding-bottom: .3rem;
 
   display: flex;
   align-items: center;
@@ -38,6 +39,9 @@ main{
 .draw__numbers__container{
   display: flex;
   gap: .3rem;
+
+  padding: .3rem 0;
+  border-top: solid black 1px;
 }
 
 .draw-numbers__number{
@@ -49,6 +53,10 @@ main{
 /* WINNER INFO */
 .winners__main__container{
   display: flex;
+  
+  padding: .3rem 0;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
 }
 
 .winners__tittle{
@@ -71,4 +79,53 @@ main{
 
 .winners__seller__container{
   width: 19.5%;
+}
+
+
+/* GIRO DA SORTE */
+.giro-da-sorte__tittle{
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  
+  padding: .3rem 0;
+  border-top: solid black 2px;
+  border-bottom: solid black 2px;
+}
+
+.giro-da-sorte__winners__main__container{
+  display: flex;
+
+  padding-top: .3rem;
+  padding-bottom: .3rem 0;
+  border-bottom: solid black 2px;
+
+  text-transform: uppercase;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.giro__winners__document__container{
+  width: 7%;
+}
+
+.giro__winners__seq__container{
+  width: 5%;
+}
+
+
+.giro__winners__name__container{
+  width: 35.5%;
+}
+
+.giro__winners__city__container{
+  width: 33%;
+}
+
+.giro__winners__seller__container{
+  width: 19.5%;
+}
+
+.giro__winners__document__tittle, .giro__winners__seq__tittle, .giro__winners__name__tittle, .giro__winners__city__tittle, .giro__winners__seller__tittle{
+  padding-bottom: .3rem;
 }
