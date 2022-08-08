@@ -6,7 +6,8 @@
         <Dezenas>41 58 50 35 32 12 09 27 51 43 40 03 26 38 39 31 57 29 08 47 21 15 44 37 11 55 33 45 10 49 23 30 59 06 48 02 05 25 46 01 19 </Dezenas>
         <Contemplados>
             <Ganhador seq="1">
-                <Documento>010816</Documento><Nome>JHONATAN HENRIQUE DE SOUZA PEREIRA</Nome>
+                <Documento>010816</Documento>
+                <Nome>JHONATAN HENRIQUE DE SOUZA PEREIRA</Nome>
                 <Cidade>SANTA CANDIDA/BAURU</Cidade>
                 <Vendedor>DOCTOR BARBERS</Vendedor>
             </Ganhador>
