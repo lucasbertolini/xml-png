@@ -17,20 +17,16 @@ function getXML(xml) {
     let numberQuantity=document.querySelectorAll('#numbersQuantity');
     let numbers=document.querySelectorAll('#numbers');
     let winnerDocument=document.querySelectorAll('#winnerDocument');
+    let winnerName=document.querySelectorAll('#winnerName');
+    let winnerCity=document.querySelectorAll('#city');
+    let winnerSeller=document.querySelectorAll('#seller');
     
     for(let i=1;i<xmlDoc.childNodes[0].childNodes.length;i+=2) {
-      let winnersPrize = (xmlDoc.childNodes[0].childNodes[i].childNodes[5]);
-      
-      if(winnersPrize) {
-        //WINNER DOCUMENT
-
-
-        
-      }
+      let winnersPrize = (xmlDoc.childNodes[0].childNodes[i].childNodes[5]);   
   }
 
   for(let i=0;i<=allPrizes.length;i++) {
-    //CREATE NEW ARRAY ONLY WITH ODS NUMBERS TO SEARCH FOR VALUES
+    //CREATE NEW ARRAY ONLY WITH ODD NUMBERS TO SEARCH FOR VALUES
     let counter= new Array;
     for(let ii=0;ii<xmlDoc.childNodes[0].childNodes.length;ii++) {
       if(ii%2) {
@@ -55,6 +51,10 @@ function getXML(xml) {
       let documento = winnersPrize.childNodes[1].childNodes[1].textContent;
       winnerDocument[i].innerHTML=documento;
 
+      winnerName[i].innerHTML = winnersPrize.childNodes[1].childNodes[3].textContent
+      winnerCity[i].innerHTML = winnersPrize.childNodes[1].childNodes[5].textContent
+      winnerSeller[i].innerHTML = winnersPrize.childNodes[1].childNodes[7].textContent;
+
       //IF THE LAST NUMBER IS EMPTY REMOVE IT 
       if((prizeNumbers[prizeNumbers.length-1])=== ''){
         prizeNumbers.pop();
@@ -66,28 +66,8 @@ function getXML(xml) {
         
       }
     }
-
-
-    //let prizeQuantityOfNumbers = prizeNumbers.length;
-
   }
-
-
-
-        
-      
-    
-      /*
-    //PERSONAL INFO FROM WINNER
-   
-    let winner1 = winnersPrize.childNodes[1]
-    
-    let winner1Name = winnersPrize.childNodes[1].childNodes[3].textContent
-    let winner1City = winnersPrize.childNodes[1].childNodes[5].textContent
-    let winner1Seller = winnersPrize.childNodes[1].childNodes[7].textContent;
-
-  
-
+    /*
     //PRIZES
     let prize2 = allPrizes[1]
     let prize3 = allPrizes[2]
