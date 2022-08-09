@@ -13,45 +13,62 @@ function getXML(xml) {
     //PRIZE HEADERS
     let allPrizes = xmlDoc.getElementsByTagName("Premio")
 
-
-
     let prizeValueText=document.querySelectorAll('#prizeValue');
     let numberQuantity=document.querySelectorAll('#numbersQuantity');
     let numbers=document.querySelectorAll('#numbers');
     let winnerDocument=document.querySelectorAll('#winnerDocument');
-  for(let i=0;i<allPrizes.length;i++) {
-    //VARIABLES FOR SEARCHING DOM CONTENT
-    let counterIncrease = 1;
     
+    for(let i=1;i<xmlDoc.childNodes[0].childNodes.length;i+=2) {
+      let winnersPrize = (xmlDoc.childNodes[0].childNodes[i].childNodes[5]);
+      
+      if(winnersPrize) {
+        //WINNER DOCUMENT
+
+
+        
+      }
+  }
+
+  for(let i=0;i<=allPrizes.length;i++) {
+    //CREATE NEW ARRAY ONLY WITH ODS NUMBERS TO SEARCH FOR VALUES
+    let counter= new Array;
+    for(let ii=0;ii<xmlDoc.childNodes[0].childNodes.length;ii++) {
+      if(ii%2) {
+        counter.push(ii);
+      }
+    }
+      
     //SELECTING WINNER
-    let winnersPrize = (xmlDoc.childNodes[0].childNodes[i+counterIncrease].childNodes[5]);
+    let winnersPrize = (xmlDoc.childNodes[0].childNodes[counter[i]].childNodes[5]);
     let prize = allPrizes[i]
     let prizeValue = allPrizes[i].childNodes[1].textContent;
     let prizeNumbersString = allPrizes[i].childNodes[3].textContent;
   
-    console.log(winnersPrize)
-
-    //WINNER DOCUMENT
-    let documento = winnersPrize.childNodes[1].childNodes[2].textContent;
+    console.log(winnersPrize);
 
     //CREATE ARRAY WITH ALL NUMBERS
-    let prizeNumbers = prizeNumbersString.split(' ');
-    numberQuantity[i].innerHTML=prizeNumbers.length -1;
-    prizeValueText[i].innerHTML=prizeValue;
+    if(winnersPrize) {
+      let prizeNumbers = prizeNumbersString.split(' ');
+      numberQuantity[i].innerHTML=prizeNumbers.length -1;
+      prizeValueText[i].innerHTML=prizeValue;
 
-    //IF THE LAST NUMBER IS EMPTY REMOVE IT 
-    if((prizeNumbers[prizeNumbers.length-1])=== ''){
-      prizeNumbers.pop();
+      let documento = winnersPrize.childNodes[1].childNodes[1].textContent;
+      winnerDocument[i].innerHTML=documento;
+
+      //IF THE LAST NUMBER IS EMPTY REMOVE IT 
+      if((prizeNumbers[prizeNumbers.length-1])=== ''){
+        prizeNumbers.pop();
+      }
+  
+      //LOOP TO PRINT EVERY ELEMENT FROM NUMBER ARRAY
+      for(let ii=0;ii<prizeNumbers.length;ii++) {
+        numbers[i].innerHTML+=prizeNumbers[ii] + ' ';
+        
+      }
     }
 
-    //LOOP TO PRINT EVERY ELEMENT FROM NUMBER ARRAY
-    for(let ii=0;ii<prizeNumbers.length;ii++) {
-      numbers[i].innerHTML+=prizeNumbers[ii] + ' ';
-     
-    }
 
-
-    let prizeQuantityOfNumbers = prizeNumbers.length;
+    //let prizeQuantityOfNumbers = prizeNumbers.length;
 
   }
 
@@ -60,7 +77,7 @@ function getXML(xml) {
         
       
     
-      
+      /*
     //PERSONAL INFO FROM WINNER
    
     let winner1 = winnersPrize.childNodes[1]
@@ -76,4 +93,5 @@ function getXML(xml) {
     let prize3 = allPrizes[2]
     let prize4 = allPrizes[3]
     let prize5 = allPrizes[4]
+    */
 }
