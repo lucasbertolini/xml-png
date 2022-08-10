@@ -7,6 +7,7 @@ xhttp.onreadystatechange = function() {
 xhttp.open("GET", "List_XML_Extracao_4.XML", true);
 xhttp.send();
 
+
 function getXML(xml) {
     var xmlDoc = xml.responseXML;
 
@@ -25,7 +26,7 @@ function getXML(xml) {
       let winnersPrize = (xmlDoc.childNodes[0].childNodes[i].childNodes[5]);   
   }
 
-  for(let i=0;i<=allPrizes.length;i++) {
+  for(let i=0;i<=allPrizes.length-1;i++) {
     //CREATE NEW ARRAY ONLY WITH ODD NUMBERS TO SEARCH FOR VALUES
     let counter= new Array;
     for(let ii=0;ii<xmlDoc.childNodes[0].childNodes.length;ii++) {
@@ -33,14 +34,14 @@ function getXML(xml) {
         counter.push(ii);
       }
     }
-      
+ 
+
     //SELECTING WINNER
     let winnersPrize = (xmlDoc.childNodes[0].childNodes[counter[i]].childNodes[5]);
     let prize = allPrizes[i]
     let prizeValue = allPrizes[i].childNodes[1].textContent;
     let prizeNumbersString = allPrizes[i].childNodes[3].textContent;
   
-    console.log(winnersPrize);
 
     //CREATE ARRAY WITH ALL NUMBERS
     if(winnersPrize) {
@@ -67,6 +68,21 @@ function getXML(xml) {
       }
     }
   }
+  let giroWinner=xmlDoc.childNodes[0].childNodes[9].childNodes[3]
+  for(let i=0;i<giroWinner.length;i++) {
+    
+    console.log(xmlDoc.childNodes[0].childNodes[9].childNodes[3])
+  }
+  //SELECTING GIRO WINNERS
+  //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[i]
+  //document
+  //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[1]
+  //name
+  //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[3]
+  //city 
+  //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[5]
+  //seller
+  //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[7]
     /*
     //PRIZES
     let prize2 = allPrizes[1]
