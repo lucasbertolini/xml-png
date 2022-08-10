@@ -68,23 +68,33 @@ function getXML(xml) {
       }
     }
   }
-  
+  let giroCounter=new Array;
+  for(let i=0;i<xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes.length;i++) {
+    if(i%2) {
+      giroCounter.push(i);
+    }
+  }
+
   let giroWinner=xmlDoc.childNodes[0].childNodes[9].childNodes[3]
   let giro=giroWinner.getElementsByTagName('Ganhador');
- 
-  for(let i=0;i<giro.length;i++) {
-    
-    console.log(xmlDoc.childNodes[0].childNodes[9].childNodes[3])
-    //SELECTING GIRO WINNERS
-    //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[i]
+  let giroWinnerDocument=document.querySelectorAll('#winnerDocumentGiro');
+  let giroNumber=document.querySelectorAll('#giroNumber');
+  let giroName=document.querySelectorAll('#giroName');
+  let giroCity=document.querySelectorAll('#giroCity');
+  let giroSeller=document.querySelectorAll('#giroSeller');
+
+
+  for(let i=0;i<=giro.length-1;i++) {
+    giroNumber[i].innerHTML=i+1;
+    console.log(xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes.length)
     //document
-    //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[1]
-    //name
-    //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[3]
+    giroWinnerDocument[i].innerHTML=xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[giroCounter[i]].childNodes[1].textContent;
+    //SELECTING GIRO WINNERS
+    giroName[i].innerHTML=xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[giroCounter[i]].childNodes[3].textContent;
     //city 
-    //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[5]
+    giroCity[i].innerHTML=xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[giroCounter[i]].childNodes[5].textContent;
     //seller
-    //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[7]
+    giroSeller[i].innerHTML=xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[giroCounter[i]].childNodes[7].textContent;
   }
     /*
     //PRIZES
