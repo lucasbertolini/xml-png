@@ -68,21 +68,24 @@ function getXML(xml) {
       }
     }
   }
+  
   let giroWinner=xmlDoc.childNodes[0].childNodes[9].childNodes[3]
-  for(let i=0;i<giroWinner.length;i++) {
+  let giro=giroWinner.getElementsByTagName('Ganhador');
+ 
+  for(let i=0;i<giro.length;i++) {
     
     console.log(xmlDoc.childNodes[0].childNodes[9].childNodes[3])
+    //SELECTING GIRO WINNERS
+    //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[i]
+    //document
+    //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[1]
+    //name
+    //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[3]
+    //city 
+    //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[5]
+    //seller
+    //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[7]
   }
-  //SELECTING GIRO WINNERS
-  //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[i]
-  //document
-  //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[1]
-  //name
-  //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[3]
-  //city 
-  //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[5]
-  //seller
-  //xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[1].childNodes[7]
     /*
     //PRIZES
     let prize2 = allPrizes[1]
