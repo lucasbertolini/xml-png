@@ -43,9 +43,7 @@ function getXML(xml) {
 
     
     //SELECTING WINNER
-    let winnersPrize = (xmlDoc.childNodes[0].children[i].children[2]);
-    console.log(winnersPrize)
-    let prize = allPrizes[i]
+    let winnersPrize = (xmlDoc.children[0].children[i].children[2]);
     let prizeValue = allPrizes[i].childNodes[1].textContent;
     let prizeNumbersString = allPrizes[i].childNodes[3].textContent;
   
