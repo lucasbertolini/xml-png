@@ -10,6 +10,7 @@ xhttp.send();
 
 function getXML(xml) {
     var xmlDoc = xml.responseXML;
+    //truque
 
 
   //HEADER INFO
