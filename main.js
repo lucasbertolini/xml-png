@@ -12,7 +12,6 @@ function getXML(xml) {
     var xmlDoc = xml.responseXML;
     //truque
 
-
   //HEADER INFO
     let headerNumber = document.querySelector('.header__info__edition__number');
     let headerDate = document.querySelector('.header__info__draw__date');

@@ -4,6 +4,11 @@ body {
   
 }
 
+html{
+  width: 904px;
+  height: 1280px;
+}
+
 
 main {
   margin: 0 1.5rem;
@@ -17,7 +22,7 @@ main {
 .header__info{
   position: absolute;
   top: 4%;
-  right: 22%;
+  left: 28%;
   background-color: var(--lightRed);
 
   color: white;
@@ -31,7 +36,7 @@ main {
   padding: 10px;
   border-radius: 5px;
 
-
+  
 }
 
 
