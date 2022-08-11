@@ -11,13 +11,24 @@ xhttp.send();
 function getXML(xml) {
     var xmlDoc = xml.responseXML;
 
+
+  //HEADER INFO
+    let headerNumber = document.querySelector('.header__info__edition__number');
+    let headerDate = document.querySelector('.header__info__draw__date');
+
+    let editionNumber = (xmlDoc.childNodes[0].attributes[0].value);
+    let editionDate = (xmlDoc.childNodes[0].attributes[1].value);
+
+    headerNumber.innerHTML = parseInt(editionNumber);
+    headerDate.innerHTML = editionDate;
+
+
     //PRIZE HEADERS
     let allPrizes = xmlDoc.getElementsByTagName("Premio");
 
   for(let i=0;i<allPrizes.length-1;i++) {
     //CREATE WINNER BODY
     let winnerBody=document.querySelectorAll('#winnerContainer');
-    console.log(winnerBody[i])
     createWinnerBody(winnerBody[i],i);
 
     //SEARCH FOR EACH ELEMENT
@@ -96,7 +107,6 @@ function getXML(xml) {
     let giroSeller=document.querySelectorAll('#giroSeller');
 
     giroNumber[i].innerHTML=i+1;
-    console.log(xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes.length)
     //document
     giroWinnerDocument[i].innerHTML=xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[giroCounter[i]].childNodes[1].textContent;
     //SELECTING GIRO WINNERS
@@ -109,7 +119,6 @@ function getXML(xml) {
 }
 
 function createGiroWinners(seqLocation,nameLocation,cityLocation,sellerLocation,docLocation) {
-  console.log(sellerLocation)
   createP(docLocation.children[0],'giro__winners__document__text','winnerDocumentGiro');
   createP(seqLocation.children[0],'giro__winners__seq_text','giroNumber');
   createP(nameLocation.children[0],'giro__winners__name__text','giroName');
@@ -121,8 +130,11 @@ function createGiroWinners(seqLocation,nameLocation,cityLocation,sellerLocation,
 //RUN ONLY 1 TIME FOR EACH PRIZE
 function createWinnerBody(location,i) {
   //WINNER DOCUMENT NUMBER
-  createH4(location,'winners__document__container','Doc.');
-  createP(location,'winners__document__text','winnerDocument');
+  
+  createDiv(location,'winners__document__container');
+  let documentDiv = document.querySelectorAll('#winners__document__container');
+  createH4(documentDiv[i],'winners__document__tittle winners__tittle','Doc.');
+  createP(documentDiv[i],'winners__document__text','winnerDocument');
   //WINNER NAME
   createDiv(location,'winners__name__container');
   let nameDiv = document.querySelectorAll('#winners__name__container');
