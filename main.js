@@ -40,15 +40,11 @@ function getXML(xml) {
     let winnerCity=document.querySelectorAll('#city');
     let winnerSeller=document.querySelectorAll('#seller');
     //CREATE NEW ARRAY ONLY WITH ODD NUMBERS TO SEARCH FOR VALUES
-    let counter= new Array;
-    for(let ii=0;ii<xmlDoc.childNodes[0].childNodes.length;ii++) {
-      if(ii%2) {
-        counter.push(ii);
-      }
-    }
+
     
     //SELECTING WINNER
-    let winnersPrize = (xmlDoc.childNodes[0].childNodes[counter[i]].childNodes[5]);
+    let winnersPrize = (xmlDoc.childNodes[0].children[i].children[2]);
+    console.log(winnersPrize)
     let prize = allPrizes[i]
     let prizeValue = allPrizes[i].childNodes[1].textContent;
     let prizeNumbersString = allPrizes[i].childNodes[3].textContent;
@@ -60,12 +56,11 @@ function getXML(xml) {
       numberQuantity[i].innerHTML=prizeNumbers.length -1;
       prizeValueText[i].innerHTML=prizeValue;
 
-      let documento = winnersPrize.childNodes[1].childNodes[1].textContent;
+      let documento = winnersPrize.children[0].children[0].textContent;
       winnerDocument[i].innerHTML=documento;
-
-      winnerName[i].innerHTML = winnersPrize.childNodes[1].childNodes[3].textContent
-      winnerCity[i].innerHTML = winnersPrize.childNodes[1].childNodes[5].textContent
-      winnerSeller[i].innerHTML = winnersPrize.childNodes[1].childNodes[7].textContent;
+      winnerName[i].innerHTML = winnersPrize.children[0].children[1].textContent
+      winnerCity[i].innerHTML = winnersPrize.children[0].children[2].textContent
+      winnerSeller[i].innerHTML = winnersPrize.children[0].children[3].textContent;
 
       //IF THE LAST NUMBER IS EMPTY REMOVE IT 
       if((prizeNumbers[prizeNumbers.length-1])=== ''){
@@ -79,17 +74,11 @@ function getXML(xml) {
       }
     }
   }
-  let giroCounter=new Array;
-  for(let i=0;i<xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes.length;i++) {
-    if(i%2) {
-      giroCounter.push(i);
-    }
-  }
 
-  let giroWinner=xmlDoc.childNodes[0].childNodes[9].childNodes[3]
+  let giroWinner=xmlDoc.childNodes[0].childNodes[9].childNodes[3];
   let giro=giroWinner.getElementsByTagName('Ganhador');
 
-  for(let i=0;i<giro.length-1;i++) {
+  for(let i=0;i<giro.length;i++) {
     //SEARCH P TAG LOCATION
     let doc=document.querySelector('#giroWinnerDoc');
     let sqe=document.querySelector('#giroWinnerNumber');
@@ -107,14 +96,15 @@ function getXML(xml) {
     let giroSeller=document.querySelectorAll('#giroSeller');
 
     giroNumber[i].innerHTML=i+1;
+    let giroPrize=xmlDoc.children[0];
     //document
-    giroWinnerDocument[i].innerHTML=xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[giroCounter[i]].childNodes[1].textContent;
+    giroWinnerDocument[i].innerHTML=giroPrize.children[4].children[1].children[i].children[0].textContent;
     //SELECTING GIRO WINNERS
-    giroName[i].innerHTML=xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[giroCounter[i]].childNodes[3].textContent;
+    giroName[i].innerHTML=giroPrize.children[4].children[1].children[i].children[1].textContent;
     //city 
-    giroCity[i].innerHTML=xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[giroCounter[i]].childNodes[5].textContent;
+    giroCity[i].innerHTML=giroPrize.children[4].children[1].children[i].children[2].textContent;
     //seller
-    giroSeller[i].innerHTML=xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[giroCounter[i]].childNodes[7].textContent;
+    giroSeller[i].innerHTML=giroPrize.children[4].children[1].children[i].children[3].textContent;
   }
 }
 
