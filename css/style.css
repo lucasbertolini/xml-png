@@ -1,20 +1,45 @@
 body {
   font-family: "Courier New", Courier, monospace;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  
 }
 
-header {
-  font-size: 2rem;
-  text-align: center;
-  padding: 2rem;
-  background-color: gray;
-  color: #fff;
-  margin-bottom: 0.7rem;
-}
 
 main {
   margin: 0 1.5rem;
 }
+
+
+.header__image{
+  width: 100%;
+}
+
+.header__info{
+  position: absolute;
+  top: 4%;
+  right: 22%;
+  background-color: var(--lightRed);
+
+  color: white;
+
+  line-height: 20px;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-align: center;
+
+  padding: 10px;
+  border-radius: 5px;
+
+
+}
+
+
+
+.header__info p{
+  display: inline-block;
+}
+
 
 .prize__tittle__container {
   text-align: center;
