@@ -11,18 +11,13 @@ xhttp.send();
 function getXML(xml) {
     var xmlDoc = xml.responseXML;
 
-
-
-
     //PRIZE HEADERS
     let allPrizes = xmlDoc.getElementsByTagName("Premio");
 
-
-
-  for(let i=0;i<=allPrizes.length-1;i++) {
+  for(let i=0;i<allPrizes.length-1;i++) {
     //CREATE WINNER BODY
     let winnerBody=document.querySelectorAll('#winnerContainer');
-    console.log(winnerBody)
+    console.log(winnerBody[i])
     createWinnerBody(winnerBody[i],i);
 
     //SEARCH FOR EACH ELEMENT
@@ -82,14 +77,24 @@ function getXML(xml) {
 
   let giroWinner=xmlDoc.childNodes[0].childNodes[9].childNodes[3]
   let giro=giroWinner.getElementsByTagName('Ganhador');
-  let giroWinnerDocument=document.querySelectorAll('#winnerDocumentGiro');
-  let giroNumber=document.querySelectorAll('#giroNumber');
-  let giroName=document.querySelectorAll('#giroName');
-  let giroCity=document.querySelectorAll('#giroCity');
-  let giroSeller=document.querySelectorAll('#giroSeller');
 
+  for(let i=0;i<giro.length-1;i++) {
+    //SEARCH P TAG LOCATION
+    let doc=document.querySelector('#giroWinnerDoc');
+    let sqe=document.querySelector('#giroWinnerNumber');
+    let name=document.querySelector('#giroWinnerName');
+    let city=document.querySelector('#giroWinnerCity');
+    let seller=document.querySelector('#giroWinnerSeller');
+  
+    createGiroWinners(sqe,name,city,seller,doc);
 
-  for(let i=0;i<=giro.length-1;i++) {
+   //SEARCH EACH TAG FOR OUTPUT RESULT
+    let giroWinnerDocument=document.querySelectorAll('#winnerDocumentGiro');
+    let giroNumber=document.querySelectorAll('#giroNumber');
+    let giroName=document.querySelectorAll('#giroName');
+    let giroCity=document.querySelectorAll('#giroCity');
+    let giroSeller=document.querySelectorAll('#giroSeller');
+
     giroNumber[i].innerHTML=i+1;
     console.log(xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes.length)
     //document
@@ -101,18 +106,17 @@ function getXML(xml) {
     //seller
     giroSeller[i].innerHTML=xmlDoc.childNodes[0].childNodes[9].childNodes[3].childNodes[giroCounter[i]].childNodes[7].textContent;
   }
-    /*
-    //PRIZES
-    let prize2 = allPrizes[1]
-    let prize3 = allPrizes[2]
-    let prize4 = allPrizes[3]
-    let prize5 = allPrizes[4]
-    */
 }
 
+function createGiroWinners(seqLocation,nameLocation,cityLocation,sellerLocation,docLocation) {
+  console.log(sellerLocation)
+  createP(docLocation.children[0],'giro__winners__document__text','winnerDocumentGiro');
+  createP(seqLocation.children[0],'giro__winners__seq_text','giroNumber');
+  createP(nameLocation.children[0],'giro__winners__name__text','giroName');
+  createP(cityLocation.children[0],'giro__winners__city__text','giroCity');
+  createP(sellerLocation.children[0],'giro__winner__seller__text','giroSeller');
 
-
-
+}
 
 //RUN ONLY 1 TIME FOR EACH PRIZE
 function createWinnerBody(location,i) {
