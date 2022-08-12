@@ -37,6 +37,18 @@
                 <Cidade>BELA VISTA/BAURU</Cidade>
                 <Vendedor>ROBERTO CALÇADÃO</Vendedor>
             </Ganhador>
+            <Ganhador seq="2">
+                <Documento>014408</Documento>
+                <Nome>AURELIANO ALVES</Nome>
+                <Cidade>BELA VISTA/BAURU</Cidade>
+                <Vendedor>ROBERTO CALÇADÃO</Vendedor>
+            </Ganhador>
+            <Ganhador seq="3">
+                <Documento>014408</Documento>
+                <Nome>AURELIANO ALVES</Nome>
+                <Cidade>BELA VISTA/BAURU</Cidade>
+                <Vendedor>ROBERTO CALÇADÃO</Vendedor>
+            </Ganhador>
         </Contemplados>
         </Premio>
 
@@ -283,7 +295,7 @@
                 <Documento>023636</Documento>
                 <Nome>DANIELE G. DA SILVA</Nome>
                 <Cidade>JD CAROLINA/BAURU</Cidade>
-                <Vendedor>BANCA CONFIANÇA FLEX MULLER</Vendedor>
+                <Vendedor>BANCA CONFIANÇA FLEX</Vendedor>
             </Ganhador>
             <Ganhador seq="39">
                 <Documento>040861</Documento>
@@ -357,6 +369,69 @@
                 <Cidade>PARQUE VIADUTO/BAURU</Cidade>
                 <Vendedor>BUTEKO DA BAIANA</Vendedor>
             </Ganhador>
+
+            <Ganhador seq="51">
+                <Documento>011100</Documento>
+                <Nome>MARIANO SILVA BATISTA</Nome>
+                <Cidade>NOVA BAURU/BAURU</Cidade>
+                <Vendedor>PEDRO</Vendedor>
+            </Ganhador>
+            <Ganhador seq="52">
+                <Documento>120807</Documento>
+                <Nome>GILBERTO A. DOS REIS</Nome>
+                <Cidade>NOBUJI NAGASAWA/BAURU</Cidade>
+                <Vendedor>GUILHOTO H2O</Vendedor>
+            </Ganhador>
+            <Ganhador seq="53">
+                <Documento>513695</Documento>
+                <Nome>FLAVIA DA SILVA CARVALHO</Nome>
+                <Cidade> NÃO IDENTIFICADO/BAURU</Cidade>
+                <Vendedor>INTERNET</Vendedor>
+            </Ganhador>
+            <Ganhador seq="55">
+                <Documento>113029</Documento>
+                <Nome>ALEXANDRA L. REIS</Nome>
+                <Cidade>MARY DOTA/BAURU</Cidade>
+                <Vendedor>ESPETINHOS DO TOM</Vendedor>
+            </Ganhador>
+            <Ganhador seq="55">
+                <Documento>137993</Documento>
+                <Nome>GENIVAL P. BORTOZO</Nome>
+                <Cidade>JARDIM EUROPA/BAURU</Cidade>
+                <Vendedor>TOME NOTA PAPELARIA</Vendedor>
+            </Ganhador>
+            <Ganhador seq="56">
+                <Documento>151789</Documento>
+                <Nome>SELMA R. MORAES</Nome>
+                <Cidade>JOSE REGINO/BAURU</Cidade>
+                <Vendedor>BARRACA DO MAURICIO</Vendedor>
+            </Ganhador>
+            <Ganhador seq="57">
+                <Documento>139866</Documento>
+                <Nome>LUIZ FERNANDO DA SILVA</Nome>
+                <Cidade>VILA CARDIA/BAURU</Cidade>
+                <Vendedor>CASA AXÉ BRASIL</Vendedor>
+            </Ganhador>
+            <Ganhador seq="58">
+                <Documento>035262</Documento>
+                <Nome>THALLES SILVA GONÇALVES</Nome>
+                <Cidade>VILA SOUTO/BAURU</Cidade>
+                <Vendedor>QUIOSQUE ISALU</Vendedor>
+            </Ganhador>
+            <Ganhador seq="59">
+                <Documento>021484</Documento>
+                <Nome>ADIMILSON A. BUENO</Nome>
+                <Cidade>CHAPADÃO /BAURU</Cidade>
+                <Vendedor>DOCE MANIA</Vendedor>
+            </Ganhador>
+            <Ganhador seq="60">
+                <Documento>142711</Documento>
+                <Nome>WALLACE VINICIUS BATISTA</Nome>
+                <Cidade>PARQUE VIADUTO/BAURU</Cidade>
+                <Vendedor>BUTEKO DA BAIANA</Vendedor>
+            </Ganhador>
+
+
         </Contemplados>
     </Premio>
 </Resultado>

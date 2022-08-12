@@ -1,0 +1,14 @@
+.draw__numbers__info{
+  width: auto;
+}
+.draw__numbers__container{
+  font-size: .8rem;
+  width: 100%;
+}
+.draw-numbers__number{
+  justify-self: flex-end;
+}
+
+.winners__main__container{
+  font-size: .9rem;
+}

@@ -21,8 +21,8 @@ main {
 
 .header__info{
   position: absolute;
-  top: 4%;
-  left: 19.5%;
+  top: 40px;
+  left: 350px;
   background-color: var(--lightRed);
 
   color: white;
@@ -161,4 +161,8 @@ main {
 .giro__winners__city__tittle,
 .giro__winners__seller__tittle {
   padding-bottom: 0.3rem;
+}
+
+.winners__document__text, .winners__name__text, .winners__city__text, .winners__seller__text{
+  margin-top: .2rem;
 }
