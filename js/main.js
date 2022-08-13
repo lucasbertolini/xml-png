@@ -9,7 +9,6 @@ xhttp.send();
 
 function getXML(xml) {
     var xmlDoc = xml.responseXML;
-    //truque
 
   //HEADER INFO
     let headerNumber = document.querySelector('.header__info__edition__number');
@@ -38,17 +37,40 @@ function getXML(xml) {
     let winnerName=document.querySelectorAll('#winnerName');
     let winnerCity=document.querySelectorAll('#city');
     let winnerSeller=document.querySelectorAll('#seller');
-    //CREATE NEW ARRAY ONLY WITH ODD NUMBERS TO SEARCH FOR VALUES
 
-    
     //SELECTING WINNER
     let winnersPrize = (xmlDoc.children[0].children[i].children[2]);
     let prizeValue = allPrizes[i].childNodes[1].textContent;
     let prizeNumbersString = allPrizes[i].childNodes[3].textContent;
-  
+    
+    //CHECK FOR MULTIPLES WINNERS FOR 4 FIRST PRIZES 
+    if(winnersPrize.children.length > 1 ) {
+      for(let ii=0; ii<=(winnersPrize.children.length -1 ); ii++){
+        //WINNER INFO 
+        let coupleWinnerName = winnersPrize.children[ii].children[1].textContent;
+        let coupleWinnerDocument=winnersPrize.children[ii].children[0].textContent;
+        let coupleWinnerCity=winnersPrize.children[ii].children[2].textContent;
+        let coupleWinnerSeller=winnersPrize.children[ii].children[3].textContent;
+        coupleWinners(winnerName[i],coupleWinnerName,winnerDocument[i],coupleWinnerDocument,winnerCity[i],coupleWinnerCity,winnerSeller[i],coupleWinnerSeller);
+      }
+      let prizeNumbers = prizeNumbersString.split(' ');
+      numberQuantity[i].innerHTML=prizeNumbers.length -1;
+      prizeValueText[i].innerHTML=prizeValue;
 
-    //CREATE ARRAY WITH ALL NUMBERS
-    if(winnersPrize) {
+
+      if((prizeNumbers[prizeNumbers.length-1])=== ''){
+        prizeNumbers.pop();
+      }
+      
+      //LOOP TO PRINT EVERY ELEMENT FROM NUMBER ARRAY
+      for(let ii=0;ii<prizeNumbers.length;ii++) {
+        numbers[i].innerHTML+=prizeNumbers[ii] + ' ';
+        
+      }
+    }
+
+    //CREATE ARRAY WITH ALL NUMBERS AND ONLY ONE WINNER PER PRIZE
+    if(winnersPrize.children.length == 1) {
       
       let prizeNumbers = prizeNumbersString.split(' ');
       numberQuantity[i].innerHTML=prizeNumbers.length -1;
@@ -59,12 +81,12 @@ function getXML(xml) {
       winnerName[i].innerHTML = winnersPrize.children[0].children[1].textContent
       winnerCity[i].innerHTML = winnersPrize.children[0].children[2].textContent
       winnerSeller[i].innerHTML = winnersPrize.children[0].children[3].textContent;
-
+     
       //IF THE LAST NUMBER IS EMPTY REMOVE IT 
       if((prizeNumbers[prizeNumbers.length-1])=== ''){
         prizeNumbers.pop();
       }
-  
+      
       //LOOP TO PRINT EVERY ELEMENT FROM NUMBER ARRAY
       for(let ii=0;ii<prizeNumbers.length;ii++) {
         numbers[i].innerHTML+=prizeNumbers[ii] + ' ';
@@ -72,7 +94,7 @@ function getXML(xml) {
       }
     }
   }
-
+  
   let giroWinner=xmlDoc.childNodes[0].childNodes[9].childNodes[3];
   let giro=giroWinner.getElementsByTagName('Ganhador');
 
@@ -106,6 +128,16 @@ function getXML(xml) {
   }
 }
 
+//**** FUNCTION AREA BELOW ******
+
+//FOR THE FIRST 4 PRIZES WITH MULTIPLES WINNERS
+function coupleWinners(nameLocation,name,documentLocation,document,cityLocation,city,sellerLocation,seller) {
+  createP(nameLocation,'winners__name__text','coupleWinnerName',name);
+  createP(documentLocation,'winners__document__text','coupleWinnerDocument',document);
+  createP(cityLocation, 'winners__city__text','coupleCity',city);
+  createP(sellerLocation,'winners__seller__text','coupleSeller',seller);
+}
+
 function createGiroWinners(seqLocation,nameLocation,cityLocation,sellerLocation,docLocation) {
   createP(docLocation.children[0],'giro__winners__document__text','winnerDocumentGiro');
   createP(seqLocation.children[0],'giro__winners__seq_text','giroNumber');
@@ -117,8 +149,8 @@ function createGiroWinners(seqLocation,nameLocation,cityLocation,sellerLocation,
 
 //RUN ONLY 1 TIME FOR EACH PRIZE
 function createWinnerBody(location,i) {
-  //WINNER DOCUMENT NUMBER
   
+  //WINNER DOCUMENT NUMBER
   createDiv(location,'winners__document__container');
   let documentDiv = document.querySelectorAll('#winners__document__container');
   createH4(documentDiv[i],'winners__document__tittle winners__tittle','Doc.');
@@ -157,9 +189,12 @@ function createH4(location,className,content) {
   location.appendChild(h4);
 }
 //CREATE P ELEMENT
-function createP(location,className,idName){
+function createP(location,className,idName,content){
   let p = document.createElement('p');
   p.setAttribute('class',className);
   p.setAttribute('id',idName);
+  if(content != undefined) {
+    p.textContent = content;
+  }
   location.appendChild(p);
 }
